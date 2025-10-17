@@ -160,8 +160,8 @@
       minTargetPower: 10000
       maxTargetPower: 32000
       targetPower: 20000
-      optimalPower: 20000
-      optimalBurnRate: 0.011111
+      optimalPower: 22000
+      optimalBurnRate: 0.0075
       clockstepConstant: 4000
     - type: SolidFuelGeneratorAdapter
       fuelMaterial: FuelGradePlasma # Frontier: Plasma<FuelGradePlasma
@@ -237,9 +237,9 @@
       minTargetPower: 15000
       maxTargetPower: 60000
       targetPower: 30000
-      optimalPower: 30000
-      optimalBurnRate: 0.0111111
-      clockstepConstant: 8000
+      optimalPower: 45000
+      optimalBurnRate: 0.0075
+      clockstepConstant: 15000
     - type: SolidFuelGeneratorAdapter
       fuelMaterial: FuelGradeUranium # Frontier: Uranium<FuelGradeUranium
       multiplier: 0.01
