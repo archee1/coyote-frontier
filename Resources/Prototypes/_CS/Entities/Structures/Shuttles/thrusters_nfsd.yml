@@ -1,0 +1,90 @@
+#Security
+- type: entity
+  id: ThrusterSecurity
+  parent: Thruster
+  name: thruster
+  suffix: Security
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers: &secThrusterLayers
+    - state: base_sec
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Destructible
+    thresholds: &secDestructibleThresholds
+    - trigger:
+        !type:DamageTrigger
+        damage: 600  # Considering we need a lot of thrusters didn't want to make an individual one too tanky
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+  - type: Machine
+    board: ThrusterSecurityMachineCircuitboard
+
+#NFSD
+- type: entity
+  id: ThrusterNfsd
+  parent: [BaseStructureDisableAnchoring, BaseStructureDisableToolUse, ThrusterSecurity]
+  suffix: NFSD
+  components:
+  - type: Thruster #upgraded NFSD thrusters
+    baseThrust: 100
+    thrust: 190
+    thrustPerPartLevel: [ 247, 304, 361, 418 ]
+    damage:
+      types:
+        Heat: 40
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers: &nfsdThrusterLayers
+    - state: base_nfsd
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Machine
+    board: ThrusterNfsdMachineCircuitboard
+
+#Debug
+- type: entity
+  id: DebugThrusterSecurity
+  parent: DebugThruster
+  name: thruster
+  suffix: DEBUG, Security
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers: *secThrusterLayers
+  - type: Destructible
+    thresholds: *secDestructibleThresholds
+  - type: Machine
+    board: ThrusterSecurityMachineCircuitboard
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container # FIXME: Why do these need to be defined here?  What's missing?
+      machine_parts: !type:Container
+- type: entity
+  id: DebugThrusterNfsd
+  parent: DebugThrusterSecurity
+  suffix: DEBUG, NFSD
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers: *nfsdThrusterLayers
+  - type: Machine
+    board: ThrusterNfsdMachineCircuitboard
