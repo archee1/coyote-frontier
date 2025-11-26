@@ -1,0 +1,52 @@
+#region Lower Power
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: SlowWeakThrusterMachineCircuitboard
+  result: SlowWeakThrusterMachineCircuitboard
+#mini located elsewhere
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: SlowStrongThrusterMachineCircuitboard
+  result: SlowStrongThrusterMachineCircuitboard
+
+#region Medium Power
+#mule located elsewhere
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: FastWeakThrusterMachineCircuitboard
+  result: FastWeakThrusterMachineCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+    Gold: 100
+
+#region High Power
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: FastStrongThrusterMachineCircuitboard
+  result: FastStrongThrusterMachineCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+    Gold: 100
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: FasterWeakThrusterMachineCircuitboard
+  result: FasterWeakThrusterMachineCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+    Gold: 200
+    Plasma: 100
+
+#region Crazy Power
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: FasterStrongThrusterMachineCircuitboard
+  result: FasterStrongThrusterMachineCircuitboard
+  materials:
+    Steel: 800
+    Glass: 900
+    Gold: 200
+    Plasma: 100
+    Diamond: 100
