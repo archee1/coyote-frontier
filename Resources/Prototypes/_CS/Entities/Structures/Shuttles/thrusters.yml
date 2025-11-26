@@ -5,6 +5,8 @@
   name: thruster
   description: A thruster that allows a shuttle to move.
   abstract: true
+  placement:
+    mode: SnapgridCenter
   components:
     - type: AmbientSound
       enabled: false
@@ -21,35 +23,53 @@
     - type: Thruster
       damage:
         types:
-          Heat: 40
+          Heat: 26 # Formula is floor(20*(thrust/baseThrust))
+    - type: ApcPowerReceiver
+      powerLoad: 1500
     - type: InteractionOutline
     - type: Sprite
     - type: Appearance
     - type: ThrusterVisuals
-    - type: ApcPowerReceiver
-      powerLoad: 1500
     - type: ExtensionCableReceiver
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: Electronic
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 300  # Changed 100->300 because impact damage is real
+          damage: 450
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+      - trigger:
+          !type:DamageTrigger
+          damage: 300
         behaviors:
           - !type:DoActsBehavior
             acts: ["Destruction"]
           - !type:PlaySoundBehavior
             sound:
               collection: MetalBreak
+          - !type:ChangeConstructionNodeBehavior
+            node: machineFrame
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Electronic
     - type: StaticPrice
       price: 300
     - type: GuideHelp
       guides:
       - ShuttleCraft
-  placement:
-    mode: SnapgridCenter
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: BasicDevice
+    - type: WirelessNetworkConnection
+      range: 200
+    - type: DeviceLinkSink
+      ports:
+      - On
+      - Off
+      - Toggle
+    - type: PirateBountyItem
+      id: Thruster
 
 #region Low Power
 - type: entity
@@ -58,6 +78,24 @@
   name: SpacePutt Mini thruster
   description: A minified version of the SpacePutt Force thruster, for mini shuttles.
   components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers:
+    - state: base_small
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust_small
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Machine
+    board: SmallThrusterMachineCircuitboard
+  - type: StaticPrice
+    price: 100
   - type: Thruster
     baseThrust: 33
     thrust: 33
@@ -67,12 +105,19 @@
         Heat: 40
   - type: ApcPowerReceiver
     powerLoad: 500
+- type: entity
+  id: SlowStrongThruster
+  parent: Thruster
+  name: MicroPutt TugMaster thruster
+  description: A slow yet powerful thruster, designed for low end civilian applications.
+    Has a low max speed, but decent acceleration and light power use.
+  components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi
+    sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
     layers:
-    - state: base_small
+    - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
-    - state: thrust_small
+    - state: thrust
       map: ["enum.ThrusterVisualLayers.ThrustOn"]
       shader: unshaded
       visible: false
@@ -81,28 +126,10 @@
       shader: unshaded
       visible: false
       offset: 0, 1
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.35,-0.45,0.35,0.45" # Thruster is slightly narrower than the big one but still long
-        density: 60 # Same density as big thruster, will be slightly lighter
-        mask:
-        - SmallMobMask #this is so they can go under plastic flaps
-        layer:
-        - MachineLayer
+  - type: Machine
+    board: SlowStrongThrusterMachineCircuitboard
   - type: StaticPrice
     price: 100
-  - type: Machine
-    board: SmallThrusterMachineCircuitboard
-- type: entity
-  id: SlowStrongThruster
-  parent: Thruster
-  name: MicroPutt TugMaster thruster
-  description: A slow yet powerful thruster, designed for low end civilian applications.
-    Has a low max speed, but decent acceleration and light power use.
-  components:
   - type: Thruster
     baseThrust: 200
     thrust: 132
@@ -112,12 +139,19 @@
         Heat: 40
   - type: ApcPowerReceiver
     powerLoad: 250
+- type: entity
+  id: SlowWeakThruster
+  parent: Thruster
+  name: MicroPutt StationKeeper thruster
+  description: A weak, high-efficiency thruster designed for shuttles that only move when they absolutely need to.
+    Has a low max speed and very low acceleration, but uses next to no power.
+  components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
+    sprite: _NF/Structures/Shuttles/thruster.rsi
     layers:
-    - state: base
+    - state: base_small
       map: ["enum.ThrusterVisualLayers.Base"]
-    - state: thrust
+    - state: thrust_small
       map: ["enum.ThrusterVisualLayers.ThrustOn"]
       shader: unshaded
       visible: false
@@ -126,28 +160,10 @@
       shader: unshaded
       visible: false
       offset: 0, 1
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.35,-0.45,0.35,0.45" # Thruster is slightly narrower than the big one but still long
-        density: 60 # Same density as big thruster, will be slightly lighter
-        mask:
-        - SmallMobMask #this is so they can go under plastic flaps
-        layer:
-        - MachineLayer
-  - type: StaticPrice
-    price: 250
   - type: Machine
-    board: SlowStrongThrusterMachineCircuitboard
-- type: entity
-  id: SlowWeakThruster
-  parent: Thruster
-  name: MicroPutt StationKeeper thruster
-  description: A weak, high-efficiency thruster designed for shuttles that only move when they absolutely need to.
-    Has a low max speed and very low acceleration, but uses next to no power.
-  components:
+    board: SlowWeakThrusterMachineCircuitboard
+  - type: StaticPrice
+    price: 100
   - type: Thruster
     baseThrust: 33
     thrust: 22
@@ -157,6 +173,46 @@
         Heat: 40
   - type: ApcPowerReceiver
     powerLoad: 1
+
+#region Medium Power
+- type: entity
+  id: Thruster
+  name: SpacePutt Mule thruster
+  description: An average basic stock space thruster, used to make shuttles go fast.
+  parent: [ BaseThruster, ConstructibleMachine ]
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Machine
+    board: ThrusterMachineCircuitboard
+  - type: Thruster
+    baseThrust: 100
+    thrust: 100
+    thrustPerPartLevel: [130, 170, 210, 250]
+    damage:
+      types:
+        Heat: 26 # Formula is floor(20*(thrust/baseThrust))
+  - type: ApcPowerReceiver
+    powerLoad: 1500
+- type: entity
+  id: FastWeakThruster
+  parent: Thruster
+  name: TurboPutt Kobold thruster
+  description: A fast thruster with low acceleration, designed for long distance and comfort.
+    Has a higher than average max speed, but low acceleration and high power use.
+  components:
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi
     layers:
@@ -171,85 +227,8 @@
       shader: unshaded
       visible: false
       offset: 0, 1
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.35,-0.45,0.35,0.45" # Thruster is slightly narrower than the big one but still long
-        density: 60 # Same density as big thruster, will be slightly lighter
-        mask:
-        - SmallMobMask #this is so they can go under plastic flaps
-        layer:
-        - MachineLayer
-  - type: StaticPrice
-    price: 100
   - type: Machine
-    board: SlowWeakThrusterMachineCircuitboard
-
-#region Medium Power
-- type: entity
-  id: Thruster
-  name: SpacePutt Mule thruster
-  description: An average basic stock space thruster, used to make shuttles go fast.
-  parent: [ BaseThruster, ConstructibleMachine ]
-  components:
-  - type: Machine
-    board: ThrusterMachineCircuitboard
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 600
-      behaviors:
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalBreak
-        - !type:ChangeConstructionNodeBehavior
-          node: machineFrame
-  - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
-    layers:
-    - state: base
-      map: ["enum.ThrusterVisualLayers.Base"]
-    - state: thrust
-      map: ["enum.ThrusterVisualLayers.ThrustOn"]
-      shader: unshaded
-      visible: false
-    - state: thrust_burn_unshaded
-      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-      shader: unshaded
-      visible: false
-      offset: 0, 1
-  # Frontier: linkable thrusters, pirate bounties
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: BasicDevice
-  - type: WirelessNetworkConnection
-    range: 200
-  - type: DeviceLinkSink
-    ports:
-    - On
-    - Off
-    - Toggle
-  - type: PirateBountyItem
-    id: Thruster
-  # End Frontier
-- type: entity
-  id: FastWeakThruster
-  parent: Thruster
-  name: TurboPutt Kobold thruster
-  description: A fast thruster with low acceleration, designed for long distance and comfort.
-    Has a higher than average max speed, but low acceleration and high power use.
-  components:
+    board: FastWeakThrusterMachineCircuitboard
   - type: Thruster
     baseThrust: 33
     thrust: 60
@@ -259,35 +238,6 @@
         Heat: 40
   - type: ApcPowerReceiver
     powerLoad: 4000
-  - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi
-    layers:
-    - state: base_small
-      map: ["enum.ThrusterVisualLayers.Base"]
-    - state: thrust_small
-      map: ["enum.ThrusterVisualLayers.ThrustOn"]
-      shader: unshaded
-      visible: false
-    - state: thrust_burn_unshaded
-      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-      shader: unshaded
-      visible: false
-      offset: 0, 1
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.35,-0.45,0.35,0.45" # Thruster is slightly narrower than the big one but still long
-        density: 60 # Same density as big thruster, will be slightly lighter
-        mask:
-        - SmallMobMask #this is so they can go under plastic flaps
-        layer:
-        - MachineLayer
-  - type: StaticPrice
-    price: 250
-  - type: Machine
-    board: FastWeakThrusterMachineCircuitboard
 
 #region High Power
 - type: entity
@@ -297,15 +247,6 @@
   description: A fast thruster with high acceleration, designed for high end civilian applications.
     Has a higher than average max speed and acceleration, but uses a lot of power.
   components:
-  - type: Thruster
-    baseThrust: 100
-    thrust: 190
-    thrustPerPartLevel: [247, 304, 361, 418]
-    damage:
-      types:
-        Heat: 40
-  - type: ApcPowerReceiver
-    powerLoad: 7500
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
     layers:
@@ -320,21 +261,17 @@
       shader: unshaded
       visible: false
       offset: 0, 1
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.35,-0.45,0.35,0.45" # Thruster is slightly narrower than the big one but still long
-        density: 60 # Same density as big thruster, will be slightly lighter
-        mask:
-        - SmallMobMask #this is so they can go under plastic flaps
-        layer:
-        - MachineLayer
-  - type: StaticPrice
-    price: 250
   - type: Machine
     board: FastStrongThrusterMachineCircuitboard
+  - type: Thruster
+    baseThrust: 100
+    thrust: 190
+    thrustPerPartLevel: [247, 304, 361, 418]
+    damage:
+      types:
+        Heat: 40
+  - type: ApcPowerReceiver
+    powerLoad: 7500
 - type: entity
   id: FasterWeakThruster
   parent: Thruster
@@ -342,15 +279,6 @@
   description: A low-acceleration thruster that can get up to some serious speeds, given enough time.
     Has a very high max speed, but low acceleration and high power use.
   components:
-  - type: Thruster
-    baseThrust: 33
-    thrust: 75
-    thrustPerPartLevel: [97.5, 120, 142.5, 165]
-    damage:
-      types:
-        Heat: 40
-  - type: ApcPowerReceiver
-    powerLoad: 8500
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi
     layers:
@@ -365,21 +293,17 @@
       shader: unshaded
       visible: false
       offset: 0, 1
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.35,-0.45,0.35,0.45" # Thruster is slightly narrower than the big one but still long
-        density: 60 # Same density as big thruster, will be slightly lighter
-        mask:
-        - SmallMobMask #this is so they can go under plastic flaps
-        layer:
-        - MachineLayer
-  - type: StaticPrice
-    price: 250
   - type: Machine
     board: FasterWeakThrusterMachineCircuitboard
+  - type: Thruster
+    baseThrust: 33
+    thrust: 75
+    thrustPerPartLevel: [97.5, 120, 142.5, 165]
+    damage:
+      types:
+        Heat: 40
+  - type: ApcPowerReceiver
+    powerLoad: 8500
 
 #region Crazy Power
 - type: entity
@@ -389,15 +313,6 @@
   description: A turbocharged superthruster that will zoom you around the galaxy at breakneck speeds... if you have the power to feed it.
     Has a very high max speed and acceleration, but uses a lot of power.
   components:
-  - type: Thruster
-    baseThrust: 330
-    thrust: 750
-    thrustPerPartLevel: [975, 1200, 1425, 1650]
-    damage:
-      types:
-        Heat: 40
-  - type: ApcPowerReceiver
-    powerLoad: 50000 # This is a lot of power, but it is a super thruster after all
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
     layers:
@@ -412,21 +327,17 @@
       shader: unshaded
       visible: false
       offset: 0, 1
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.35,-0.45,0.35,0.45" # Thruster is slightly narrower than the big one but still long
-        density: 60 # Same density as big thruster, will be slightly lighter
-        mask:
-        - SmallMobMask #this is so they can go under plastic flaps
-        layer:
-        - MachineLayer
-  - type: StaticPrice
-    price: 250
   - type: Machine
     board: FasterStrongThrusterMachineCircuitboard
+  - type: Thruster
+    baseThrust: 330
+    thrust: 750
+    thrustPerPartLevel: [975, 1200, 1425, 1650]
+    damage:
+      types:
+        Heat: 40
+  - type: ApcPowerReceiver
+    powerLoad: 50000 # This is a lot of power, but it is a super thruster after all
 
 #region Other
 - type: entity
@@ -445,13 +356,8 @@
   parent: BaseThruster
   suffix: DEBUG
   components:
-  - type: Thruster
-    requireSpace: false
-  - type: ApcPowerReceiver
-    needsPower: false
-    powerLoad: 0
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
+    sprite: _NF/Structures/Shuttles/thruster.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -464,3 +370,8 @@
       shader: unshaded
       visible: false
       offset: 0, 1
+  - type: Thruster
+    requireSpace: false
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
