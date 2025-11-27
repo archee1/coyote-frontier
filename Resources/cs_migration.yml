@@ -1,0 +1,25 @@
+###for formatting;
+### "##PR###" then a block of all migrations.
+### "#subgroup"
+
+
+##TBD - Thruster Overhaul
+SmallThruster: ThrusterBud # Thrusters
+SlowStrongThruster: ThrusterTulip
+SlowWeakThruster: ThrusterAnemone
+Thruster: ThrusterStock
+FastWeakThruster: ThrusterBegonia
+FastStrongThruster: ThrusterSnapdragon
+FasterWeakThruster: ThrusterCrocus
+FasterStrongThruster: ThrusterPhlox
+ThrusterSecurity: ThrusterRoseSecurity
+ThrusterNfsd: ThrusterRoseNfsd
+SmallThrusterMachineCircuitboard: ThrusterBudMachineCircuitboard # Circuitboards
+SlowStrongThrusterMachineCircuitboard: ThrusterTulipMachineCircuitboard
+SlowWeakThrusterMachineCircuitboard: ThrusterAnemoneMachineCircuitboard
+ThrusterMachineCircuitboard: ThrusterStockMachineCircuitboard
+FastStrongThrusterMachineCircuitboard: ThrusterBegoniaMachineCircuitboard
+FasterWeakThrusterThrusterMachineCircuitboard: ThrusterCrocusMachineCircuitboard
+FasterStrongThrusterMachineCircuitboard: ThrusterPhloxMachineCircuitboard
+ThrusterSecurityMachineCircuitboard: ThrusterRoseSecurityMachineCircuitboard
+ThrusterNfsdMachineCircuitboard: ThrusterRoseNfsdMachineCircuitboard

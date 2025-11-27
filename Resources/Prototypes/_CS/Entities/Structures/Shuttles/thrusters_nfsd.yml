@@ -47,7 +47,7 @@
 
 #NFSD
 - type: entity
-  id: ThrusterRoseNFSD
+  id: ThrusterRoseNfsd
   parent: ThrusterRoseSecurity
   suffix: NFSD
   components:

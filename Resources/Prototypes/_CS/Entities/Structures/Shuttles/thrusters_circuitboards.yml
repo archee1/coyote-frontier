@@ -1,5 +1,5 @@
 #region Low Power
-- type: entity #needs migration
+- type: entity #needs recipe updates?
   id: SmallThrusterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: bud thruster machine board
@@ -17,7 +17,7 @@
   - type: Tag
     tags:
     - SmallThrusterMachineCircuitboard
-- type: entity #needs migration
+- type: entity #needs recipe updates?
   id: SlowStrongThrusterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: tulip thruster machine board
@@ -30,7 +30,7 @@
     prototype: SlowStrongThruster
     requirements:
       Capacitor: 3
-- type: entity #needs migration
+- type: entity #needs recipe updates?
   id: SlowWeakThrusterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: anemone thruster machine board
@@ -58,7 +58,7 @@
       Capacitor: 3
 
 #region Medium Power
-- type: entity #needs migration
+- type: entity #needs recipe updates?
   id: ThrusterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: stock thruster machine board
@@ -71,7 +71,7 @@
       Capacitor: 4
     stackRequirements:
       Steel: 5
-- type: entity #needs migration
+- type: entity #needs recipe updates?
   id: FastWeakThrusterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: begonia thruster machine board
@@ -88,7 +88,7 @@
       Steel: 5
 
 #region High Power
-- type: entity #needs migration
+- type: entity #needs recipe updates?
   id: FastStrongThrusterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: snapdragon thruster machine board
@@ -103,7 +103,7 @@
       Capacitor: 5
     stackRequirements:
       Steel: 10
-- type: entity #needs migration
+- type: entity #needs recipe updates?
   id: FasterWeakThrusterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: crocus thruster machine board
@@ -121,7 +121,7 @@
       Plasma: 5
 
 #region Crazy Power
-- type: entity #needs migrations
+- type: entity #needs recipe updates?
   id: FasterStrongThrusterMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: phlox thruster machine board
@@ -141,7 +141,7 @@
       Plasma: 10
 
 #region Security/NFSD
-- type: entity #needs migrations
+- type: entity #needs recipe updates?
   id: ThrusterSecurityMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: rose thruster machine board
@@ -149,13 +149,13 @@
   - type: Sprite
     state: security
   - type: MachineBoard
-    prototype: ThrusterSecurity
+    prototype: ThrusterRoseSecurity
     requirements:
       Capacitor: 3
     stackRequirements:
       Steel: 5
-- type: entity #needs migrations
-  id: ThrusterNfsdMachineCircuitboard
+- type: entity #needs recipe updates?
+  id: ThrusterRoseNfsdMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: NFSD thruster machine board
   components:
@@ -163,7 +163,7 @@
     sprite: _NF/Objects/Misc/module.rsi
     state: nfsd
   - type: MachineBoard
-    prototype: ThrusterNfsd
+    prototype: ThrusterRoseNfsd
     requirements:
       Capacitor: 3
     stackRequirements:
