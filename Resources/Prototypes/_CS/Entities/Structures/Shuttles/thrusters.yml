@@ -71,40 +71,7 @@
     - type: PirateBountyItem
       id: Thruster
 
-#region Low Power
-- type: entity
-  id: ThrusterBud
-  parent: BaseThruster
-  name: SpaceMutt Bud-L6
-  description: A minified version of the SpacePutt Force thruster, for mini shuttles.
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi
-    layers:
-    - state: base_small
-      map: ["enum.ThrusterVisualLayers.Base"]
-    - state: thrust_small
-      map: ["enum.ThrusterVisualLayers.ThrustOn"]
-      shader: unshaded
-      visible: false
-    - state: thrust_burn_unshaded
-      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-      shader: unshaded
-      visible: false
-      offset: 0, 1
-  - type: Machine
-    board: SmallThrusterMachineCircuitboard
-  - type: StaticPrice
-    price: 100
-  - type: Thruster
-    baseThrust: 40
-    thrust: 52
-    thrustPerPartLevel: [52, 67.6, 83.2, 104]
-    damage:
-      types:
-        Heat: 21
-  - type: ApcPowerReceiver
-    powerLoad: 650
+#region SpacePutt
 - type: entity
   id: ThrusterTulip
   parent: BaseThruster
@@ -139,6 +106,7 @@
         Heat: 11
   - type: ApcPowerReceiver
     powerLoad: 750
+
 - type: entity
   id: ThrusterAnemone
   parent: BaseThruster
@@ -173,6 +141,108 @@
         Heat: 12
   - type: ApcPowerReceiver
     powerLoad: 100
+
+#region SpaceMutt
+- type: entity
+  id: ThrusterBud
+  parent: BaseThruster
+  name: SpaceMutt Bud-L6
+  description: A minified version of the SpacePutt Force thruster, for mini shuttles.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers:
+    - state: base_small
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust_small
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Machine
+    board: SmallThrusterMachineCircuitboard
+  - type: StaticPrice
+    price: 100
+  - type: Thruster
+    baseThrust: 40
+    thrust: 52
+    thrustPerPartLevel: [52, 67.6, 83.2, 104]
+    damage:
+      types:
+        Heat: 21
+  - type: ApcPowerReceiver
+    powerLoad: 650
+
+- type: entity
+  id: ThrusterStock
+  name: SpaceMutt Stock-M15
+  description: An average basic stock space thruster, used to make shuttles go fast.
+  parent: BaseThruster
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Machine
+    board: ThrusterMachineCircuitboard
+  - type: Thruster
+    baseThrust: 100
+    thrust: 130
+    thrustPerPartLevel: [130, 169, 208, 260]
+    damage:
+      types:
+        Heat: 21
+  - type: ApcPowerReceiver
+    powerLoad: 1500
+
+- type: entity
+  id: ThrusterBegonia
+  parent: BaseThruster
+  name: SpaceMutt Begonia-M25
+  description: A fast thruster with low acceleration, designed for long distance and comfort.
+    Has a higher than average max speed, but low acceleration and high power use.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers:
+    - state: base_small
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust_small
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Machine
+    board: FastWeakThrusterMachineCircuitboard
+  - type: Thruster
+    baseThrust: 120
+    thrust: 200
+    thrustPerPartLevel: [200, 260, 320, 400]
+    damage:
+      types:
+        Heat: 28
+  - type: ApcPowerReceiver
+    powerLoad: 2500
+
+#region SpaceJett
 - type: entity
   id: ThrusterLotus
   parent: BaseThruster
@@ -208,72 +278,6 @@
   - type: ApcPowerReceiver
     powerLoad: 1200
 
-#region SpacePutt
-- type: entity
-  id: ThrusterStock
-  name: SpaceMutt Stock-M15
-  description: An average basic stock space thruster, used to make shuttles go fast.
-  parent: BaseThruster
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi
-    layers:
-    - state: base
-      map: ["enum.ThrusterVisualLayers.Base"]
-    - state: thrust
-      map: ["enum.ThrusterVisualLayers.ThrustOn"]
-      shader: unshaded
-      visible: false
-    - state: thrust_burn_unshaded
-      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-      shader: unshaded
-      visible: false
-      offset: 0, 1
-  - type: Machine
-    board: ThrusterMachineCircuitboard
-  - type: Thruster
-    baseThrust: 100
-    thrust: 130
-    thrustPerPartLevel: [130, 169, 208, 260]
-    damage:
-      types:
-        Heat: 21
-  - type: ApcPowerReceiver
-    powerLoad: 1500
-- type: entity
-  id: ThrusterBegonia
-  parent: BaseThruster
-  name: SpaceMutt Begonia-M25
-  description: A fast thruster with low acceleration, designed for long distance and comfort.
-    Has a higher than average max speed, but low acceleration and high power use.
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi
-    layers:
-    - state: base_small
-      map: ["enum.ThrusterVisualLayers.Base"]
-    - state: thrust_small
-      map: ["enum.ThrusterVisualLayers.ThrustOn"]
-      shader: unshaded
-      visible: false
-    - state: thrust_burn_unshaded
-      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-      shader: unshaded
-      visible: false
-      offset: 0, 1
-  - type: Machine
-    board: FastWeakThrusterMachineCircuitboard
-  - type: Thruster
-    baseThrust: 120
-    thrust: 200
-    thrustPerPartLevel: [200, 260, 320, 400]
-    damage:
-      types:
-        Heat: 28
-  - type: ApcPowerReceiver
-    powerLoad: 2500
-
-#region SpaceMutt
 - type: entity
   id: ThrusterSnapdragon
   parent: BaseThruster
@@ -306,6 +310,7 @@
         Heat: 37
   - type: ApcPowerReceiver
     powerLoad: 8500
+
 - type: entity
   id: ThrusterCrocus
   parent: BaseThruster
@@ -339,7 +344,6 @@
   - type: ApcPowerReceiver
     powerLoad: 8500
 
-#region SpaceJett
 - type: entity
   id: ThrusterPhlox
   parent: BaseThruster

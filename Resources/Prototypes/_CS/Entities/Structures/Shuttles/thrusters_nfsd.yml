@@ -67,18 +67,17 @@
       offset: 0, 1
   - type: Machine
     board: ThrusterNfsdMachineCircuitboard
-- type: entity # Needs Lathe/Techpack
-  id: ThrusterHellebore
-  parent: [BaseStructureDisableAnchoring, BaseStructureDisableToolUse, ThrusterSecurity]
+- type: entity
+  id: ThrusterHelleboreNfsd
+  parent: ThrusterSecurity
   name: SpaceJett Hellebore-S50
   suffix: NFSD
   components:
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi
     layers: *nfsdThrusterLayers
-
   - type: Machine
-    board: ThrusterHelleboreMachineCircuitboard
+    board: ThrusterHelleboreNfsdMachineCircuitboard
   - type: Thruster
     baseThrust: 135
     thrust: 337.5

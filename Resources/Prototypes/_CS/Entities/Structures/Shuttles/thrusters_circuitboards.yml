@@ -1,24 +1,6 @@
-#region Low Power
+#region SpacePutt
 - type: entity #needs recipe updates?
-  id: SmallThrusterMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: bud thruster machine board
-  components:
-  - type: Sprite
-    state: supply
-  - type: MachineBoard
-    prototype: SmallThruster
-    requirements:
-      Capacitor: 4
-    stackRequirements:
-      Steel: 5
-  - type: StaticPrice
-    price: 18
-  - type: Tag
-    tags:
-    - SmallThrusterMachineCircuitboard
-- type: entity #needs recipe updates?
-  id: SlowStrongThrusterMachineCircuitboard
+  id: ThrusterTulipMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: tulip thruster machine board
   description: A machine board for the MicroPutt TugMaster thruster.
@@ -27,11 +9,11 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: SlowStrongThruster
+    prototype: ThrusterTulip
     requirements:
       Capacitor: 3
 - type: entity #needs recipe updates?
-  id: SlowWeakThrusterMachineCircuitboard
+  id: ThrusterAnemoneMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: anemone thruster machine board
   description: A machine board for the MicroPutt StationKeeper thruster.
@@ -40,9 +22,59 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: SlowWeakThruster
+    prototype: ThrusterAnemone
     requirements:
       Capacitor: 3
+
+#region SpaceMutt
+- type: entity #needs recipe updates?
+  id: ThrusterBudMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: bud thruster machine board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ThrusterBud
+    requirements:
+      Capacitor: 3
+    stackRequirements:
+      Steel: 5
+  - type: StaticPrice
+    price: 18
+  - type: Tag
+    tags:
+    - SmallThrusterMachineCircuitboard
+- type: entity #needs recipe updates?
+  id: ThrusterStockMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: stock thruster machine board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ThrusterStock
+    requirements:
+      Capacitor: 4
+    stackRequirements:
+      Steel: 5
+- type: entity #needs recipe updates?
+  id: ThrusterBegoniaMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: begonia thruster machine board
+  description: A machine board for the TurboPutt Kobold thruster.
+    It is designed for high speed, low acceleration, and high power use.
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: ThrusterBegonia
+    requirements:
+      Capacitor: 5
+    stackRequirements:
+      Steel: 5
+
+#region SpaceJett
 - type: entity #needs lathe recipe
   id: ThrusterLotusMachineCircuitboard
   parent: BaseMachineCircuitboard
@@ -56,40 +88,8 @@
     prototype: ThrusterLotus
     requirements:
       Capacitor: 3
-
-#region Medium Power
 - type: entity #needs recipe updates?
-  id: ThrusterMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: stock thruster machine board
-  components:
-  - type: Sprite
-    state: supply
-  - type: MachineBoard
-    prototype: Thruster
-    requirements:
-      Capacitor: 4
-    stackRequirements:
-      Steel: 5
-- type: entity #needs recipe updates?
-  id: FastWeakThrusterMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: begonia thruster machine board
-  description: A machine board for the TurboPutt Kobold thruster.
-    It is designed for high speed, low acceleration, and high power use.
-  components:
-  - type: Sprite
-    state: supply
-  - type: MachineBoard
-    prototype: FastWeakThruster
-    requirements: # Frontier
-      Capacitor: 5 # Frontier stackRequirements<requirements
-    stackRequirements:
-      Steel: 5
-
-#region High Power
-- type: entity #needs recipe updates?
-  id: FastStrongThrusterMachineCircuitboard
+  id: ThrusterSnapdragonMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: snapdragon thruster machine board
   description: A machine board for the TurboPutt Dragon thruster.
@@ -98,13 +98,13 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: FastStrongThruster
+    prototype: ThrusterSnapdragon
     requirements:
       Capacitor: 5
     stackRequirements:
       Steel: 10
 - type: entity #needs recipe updates?
-  id: FasterWeakThrusterMachineCircuitboard
+  id: ThrusterCrocusMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: crocus thruster machine board
   description: A machine board for the UltraPutt Vesper thruster.
@@ -113,16 +113,14 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: FasterWeakThruster
+    prototype: ThrusterCrocus
     requirements:
       Capacitor: 6
     stackRequirements:
       Steel: 10
       Plasma: 5
-
-#region Crazy Power
 - type: entity #needs recipe updates?
-  id: FasterStrongThrusterMachineCircuitboard
+  id: ThrusterPhloxMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: phlox thruster machine board
   description: A machine board for the UltraPutt Titan thruster.
@@ -133,7 +131,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: FasterStrongThruster
+    prototype: ThrusterPhlox
     requirements:
       Capacitor: 6
     stackRequirements:
@@ -142,9 +140,9 @@
 
 #region Security/NFSD
 - type: entity #needs recipe updates?
-  id: ThrusterSecurityMachineCircuitboard
+  id: ThrusterRoseSecurityMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: rose thruster machine board
+  name: security rose thruster machine board
   components:
   - type: Sprite
     state: security
@@ -157,7 +155,7 @@
 - type: entity #needs recipe updates?
   id: ThrusterRoseNfsdMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: NFSD thruster machine board
+  name: NFSD rose thruster machine board
   components:
   - type: Sprite
     sprite: _NF/Objects/Misc/module.rsi
@@ -169,15 +167,15 @@
     stackRequirements:
       Steel: 5
 - type: entity #needs lathe recipe
-  id: ThrusterNfsdMachineCircuitboard
+  id: ThrusterHelleboreNfsdMachineCircuitboard
   parent: BaseMachineCircuitboard
-  name: hellebore thruster machine board
+  name: NFSD hellebore thruster machine board
   components:
   - type: Sprite
     sprite: _NF/Objects/Misc/module.rsi
     state: nfsd
   - type: MachineBoard
-    prototype: ThrusterHellebore
+    prototype: ThrusterHelleboreNfsd
     requirements:
       Capacitor: 5
     stackRequirements:
