@@ -148,53 +148,9 @@
       prototype: NfsdTechFab
 
 # Thrusters
-- type: entity
-  id: ThrusterSecurityMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: security thruster machine board
-  components:
-  - type: Sprite
-    state: security
-  - type: MachineBoard
-    prototype: ThrusterSecurity
-    requirements:
-      Capacitor: 3
-    stackRequirements:
-      Steel: 5
-
-- type: entity
-  id: ThrusterNfsdMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: NFSD thruster machine board
-  components:
-  - type: Sprite
-    sprite: _NF/Objects/Misc/module.rsi
-    state: nfsd
-  - type: MachineBoard
-    prototype: ThrusterNfsd
-    requirements:
-      Capacitor: 3
-    stackRequirements:
-      Steel: 5
-
-- type: entity
-  id: SmallThrusterMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: SpacePutt Mini thruster machine board
-  components:
-  - type: Sprite
-    state: supply
-  - type: MachineBoard
-    prototype: SmallThruster
-    requirements:
-      Capacitor: 4
-    stackRequirements:
-      Steel: 5
-  - type: StaticPrice
-    price: 18 # 12.5<18
-  - type: Tag # Frontier
-    tags: # Frontier
-    - SmallThrusterMachineCircuitboard # Frontier
+#
+#
+#
 
 # Gyroscope
 - type: entity

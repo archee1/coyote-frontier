@@ -936,20 +936,7 @@
     - type: StaticPrice
       price: 40
 
-- type: entity
-  id: ThrusterMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: SpacePutt Mule thruster machine board
-  components:
-  - type: Sprite
-    state: supply
-  - type: MachineBoard
-    prototype: Thruster
-    requirements: # Frontier
-      Capacitor: 4 # Frontier
-    stackRequirements:
-      # Manipulator: 4 # Frontier
-      Steel: 5
+#
 
 - type: entity
   id: GyroscopeMachineCircuitboard

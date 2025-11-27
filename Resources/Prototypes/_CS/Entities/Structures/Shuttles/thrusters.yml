@@ -1,36 +1,28 @@
 #region Base Thruster
 - type: entity
   id: BaseThruster
-  parent: BaseStructureDynamic
-  name: thruster
+  parent: [ BaseStructureDynamic, ConstructibleMachine ]
+  name: SpaceMutt Genera-M15 #Naming Format: Techgroup Name-[thrust][cW (centiwatts)]
   description: A thruster that allows a shuttle to move.
   abstract: true
   placement:
     mode: SnapgridCenter
   components:
-    - type: AmbientSound
-      enabled: false
-      range: 4
-      volume: -4
-      sound:
-        path: /Audio/Effects/shuttle_thruster.ogg
+    - type: Sprite
+    - type: Appearance
+    - type: ThrusterVisuals
     - type: Transform
       anchored: true
     - type: Physics
       bodyType: Static
     - type: Rotatable
       rotateWhileAnchored: true
-    - type: Thruster
-      damage:
-        types:
-          Heat: 26 # Formula is floor(20*(thrust/baseThrust))
-    - type: ApcPowerReceiver
-      powerLoad: 1500
-    - type: InteractionOutline
-    - type: Sprite
-    - type: Appearance
-    - type: ThrusterVisuals
-    - type: ExtensionCableReceiver
+    - type: AmbientSound
+      enabled: false
+      range: 4
+      volume: -4
+      sound:
+        path: /Audio/Effects/shuttle_thruster.ogg
     - type: Destructible
       thresholds:
       - trigger:
@@ -53,6 +45,14 @@
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: Electronic
+    - type: Thruster # Top Speed is 20xThrust/baseThrust
+      damage:
+        types:
+          Heat: 21 # Formula is floor(20*(thrust/baseThrust))-5
+    - type: ApcPowerReceiver
+      powerLoad: 1500
+    - type: InteractionOutline
+    - type: ExtensionCableReceiver
     - type: StaticPrice
       price: 300
     - type: GuideHelp
@@ -73,9 +73,9 @@
 
 #region Low Power
 - type: entity
-  id: SmallThruster
-  parent: Thruster
-  name: SpacePutt Mini thruster
+  id: ThrusterBud
+  parent: BaseThruster
+  name: SpaceMutt Bud-L6
   description: A minified version of the SpacePutt Force thruster, for mini shuttles.
   components:
   - type: Sprite
@@ -97,23 +97,23 @@
   - type: StaticPrice
     price: 100
   - type: Thruster
-    baseThrust: 33
-    thrust: 33
-    thrustPerPartLevel: [42.9, 56.1, 69.3, 82.5]
+    baseThrust: 40
+    thrust: 52
+    thrustPerPartLevel: [52, 67.6, 83.2, 104]
     damage:
       types:
-        Heat: 26
+        Heat: 21
   - type: ApcPowerReceiver
-    powerLoad: 500
+    powerLoad: 650
 - type: entity
-  id: SlowStrongThruster
-  parent: Thruster
-  name: MicroPutt TugMaster thruster
+  id: ThrusterTulip
+  parent: BaseThruster
+  name: SpacePutt Tulip-H7
   description: A slow yet powerful thruster, designed for low end civilian applications.
     Has a low max speed, but decent acceleration and light power use.
   components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
+    sprite: _NF/Structures/Shuttles/thruster.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -131,18 +131,18 @@
   - type: StaticPrice
     price: 100
   - type: Thruster
-    baseThrust: 200
-    thrust: 132
-    thrustPerPartLevel: [162, 202, 242, 282]
+    baseThrust: 250
+    thrust: 200
+    thrustPerPartLevel: [200, 260, 320, 400]
     damage:
       types:
-        Heat: 16
+        Heat: 11
   - type: ApcPowerReceiver
-    powerLoad: 250
+    powerLoad: 750
 - type: entity
-  id: SlowWeakThruster
-  parent: Thruster
-  name: MicroPutt StationKeeper thruster
+  id: ThrusterAnemone
+  parent: BaseThruster
+  name: SpacePutt Anemone-L1
   description: A weak, high-efficiency thruster designed for shuttles that only move when they absolutely need to.
     Has a low max speed and very low acceleration, but uses next to no power.
   components:
@@ -165,21 +165,55 @@
   - type: StaticPrice
     price: 100
   - type: Thruster
-    baseThrust: 33
-    thrust: 22
-    thrustPerPartLevel: [28.6, 37, 45.4, 53.8] # its bad
+    baseThrust: 40
+    thrust: 35
+    thrustPerPartLevel: [35, 45.5, 56, 70] # its bad
     damage:
       types:
-        Heat: 17
+        Heat: 12
   - type: ApcPowerReceiver
-    powerLoad: 1
-
-#region Medium Power
+    powerLoad: 100
 - type: entity
-  id: Thruster
-  name: SpacePutt Mule thruster
+  id: ThrusterLotus
+  parent: BaseThruster
+  name: SpaceJett Lotus-L12
+  description: A weak, high-efficiency thruster designed for shuttles that only move when they absolutely need to.
+    Has a low max speed and very low acceleration, but uses next to no power.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers:
+    - state: base_small
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust_small
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Machine
+    board: ThrusterLotusMachineCircuitboard
+  - type: StaticPrice
+    price: 100
+  - type: Thruster
+    baseThrust: 80
+    thrust: 128
+    thrustPerPartLevel: [128, 166.4, 204.8, 256]
+    damage:
+      types:
+        Heat: 27
+  - type: ApcPowerReceiver
+    powerLoad: 1200
+
+#region SpacePutt
+- type: entity
+  id: ThrusterStock
+  name: SpaceMutt Stock-M15
   description: An average basic stock space thruster, used to make shuttles go fast.
-  parent: [ BaseThruster, ConstructibleMachine ]
+  parent: BaseThruster
   components:
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi
@@ -199,17 +233,17 @@
     board: ThrusterMachineCircuitboard
   - type: Thruster
     baseThrust: 100
-    thrust: 100
-    thrustPerPartLevel: [130, 170, 210, 250]
+    thrust: 130
+    thrustPerPartLevel: [130, 169, 208, 260]
     damage:
       types:
-        Heat: 26
+        Heat: 21
   - type: ApcPowerReceiver
     powerLoad: 1500
 - type: entity
-  id: FastWeakThruster
-  parent: Thruster
-  name: TurboPutt Kobold thruster
+  id: ThrusterBegonia
+  parent: BaseThruster
+  name: SpaceMutt Begonia-M25
   description: A fast thruster with low acceleration, designed for long distance and comfort.
     Has a higher than average max speed, but low acceleration and high power use.
   components:
@@ -230,25 +264,25 @@
   - type: Machine
     board: FastWeakThrusterMachineCircuitboard
   - type: Thruster
-    baseThrust: 33
-    thrust: 60
-    thrustPerPartLevel: [78, 96, 114, 132]
+    baseThrust: 120
+    thrust: 200
+    thrustPerPartLevel: [200, 260, 320, 400]
     damage:
       types:
-        Heat: 47
+        Heat: 28
   - type: ApcPowerReceiver
-    powerLoad: 4000
+    powerLoad: 2500
 
-#region High Power
+#region SpaceMutt
 - type: entity
-  id: FastStrongThruster
-  parent: Thruster
-  name: TurboPutt Dragon thruster
+  id: ThrusterSnapdragon
+  parent: BaseThruster
+  name: SpaceJett Snapdragon-M85
   description: A fast thruster with high acceleration, designed for high end civilian applications.
     Has a higher than average max speed and acceleration, but uses a lot of power.
   components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
+    sprite: _NF/Structures/Shuttles/thruster.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -264,18 +298,18 @@
   - type: Machine
     board: FastStrongThrusterMachineCircuitboard
   - type: Thruster
-    baseThrust: 100
-    thrust: 190
-    thrustPerPartLevel: [247, 304, 361, 418]
+    baseThrust: 110
+    thrust: 235
+    thrustPerPartLevel: [235, 305.5, 376, 470]
     damage:
       types:
-        Heat: 49
+        Heat: 37
   - type: ApcPowerReceiver
-    powerLoad: 7500
+    powerLoad: 8500
 - type: entity
-  id: FasterWeakThruster
-  parent: Thruster
-  name: UltraPutt Vesper thruster
+  id: ThrusterCrocus
+  parent: BaseThruster
+  name: SpaceJett Crocus-L65
   description: A low-acceleration thruster that can get up to some serious speeds, given enough time.
     Has a very high max speed, but low acceleration and high power use.
   components:
@@ -296,25 +330,25 @@
   - type: Machine
     board: FasterWeakThrusterMachineCircuitboard
   - type: Thruster
-    baseThrust: 33
-    thrust: 75
-    thrustPerPartLevel: [97.5, 120, 142.5, 165]
+    baseThrust: 35
+    thrust: 87.5
+    thrustPerPartLevel: [87.5, 113.8, 140, 175]
     damage:
       types:
-        Heat: 59
+        Heat: 45
   - type: ApcPowerReceiver
     powerLoad: 8500
 
-#region Crazy Power
+#region SpaceJett
 - type: entity
-  id: FasterStrongThruster
-  parent: Thruster
-  name: UltraPutt Titan thruster
+  id: ThrusterPhlox
+  parent: BaseThruster
+  name: SpaceJett Phlox-H550
   description: A turbocharged superthruster that will zoom you around the galaxy at breakneck speeds... if you have the power to feed it.
     Has a very high max speed and acceleration, but uses a lot of power.
   components:
   - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi # Frontier: use _NF prefix
+    sprite: _NF/Structures/Shuttles/thruster.rsi
     layers:
     - state: base
       map: ["enum.ThrusterVisualLayers.Base"]
@@ -330,14 +364,14 @@
   - type: Machine
     board: FasterStrongThrusterMachineCircuitboard
   - type: Thruster
-    baseThrust: 330
-    thrust: 750
-    thrustPerPartLevel: [975, 1200, 1425, 1650]
+    baseThrust: 350
+    thrust: 875
+    thrustPerPartLevel: [875, 1137.5, 1400, 1750]
     damage:
       types:
-        Heat: 59
+        Heat: 45
   - type: ApcPowerReceiver
-    powerLoad: 50000 # This is a lot of power, but it is a super thruster after all
+    powerLoad: 55000
 
 #region Other
 - type: entity

@@ -1,8 +1,8 @@
 #Security
 - type: entity
-  id: ThrusterSecurity
+  id: ThrusterRoseSecurity
   parent: Thruster
-  name: thruster
+  name: SpaceMutt Rose-S20
   suffix: Security
   components:
   - type: Sprite
@@ -25,22 +25,30 @@
     thresholds: &secDestructibleThresholds
     - trigger:
         !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
         damage: 450
       behaviors:
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Thruster
-    baseThrust: 100
-    thrust: 150
-    thrustPerPartLevel: [ 195, 240, 285, 315 ]
+    baseThrust: 120
+    thrust: 220
+    thrustPerPartLevel: [ 220, 286, 352, 440 ]
     damage:
       types:
-        Heat: 39
+        Heat: 31
+  - type: ApcPowerReceiver
+    powerLoad: 2000
 
 #NFSD
 - type: entity
-  id: ThrusterNfsd
-  parent: [BaseStructureDisableAnchoring, BaseStructureDisableToolUse, ThrusterSecurity]
+  id: ThrusterRoseNFSD
+  parent: ThrusterRoseSecurity
   suffix: NFSD
   components:
   - type: Sprite
@@ -59,6 +67,27 @@
       offset: 0, 1
   - type: Machine
     board: ThrusterNfsdMachineCircuitboard
+- type: entity # Needs Lathe/Techpack
+  id: ThrusterHellebore
+  parent: [BaseStructureDisableAnchoring, BaseStructureDisableToolUse, ThrusterSecurity]
+  name: SpaceJett Hellebore-S50
+  suffix: NFSD
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers: *nfsdThrusterLayers
+
+  - type: Machine
+    board: ThrusterHelleboreMachineCircuitboard
+  - type: Thruster
+    baseThrust: 135
+    thrust: 337.5
+    thrustPerPartLevel: [ 337.5, 438.8, 540, 675 ]
+    damage:
+      types:
+        Heat: 31
+  - type: ApcPowerReceiver
+    powerLoad: 5000
 
 #Debug
 - type: entity

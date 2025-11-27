@@ -1,0 +1,45 @@
+#Theres probably a better way to do this using migrations, but thats above me right now.
+
+#thrusters.yml
+- type: entity
+  id: SmallThruster
+  parent: ThrusterBud
+  suffix: [Legacy]
+- type: entity
+  id: SlowStrongThruster
+  parent: ThrusterTulip
+  suffix: [Legacy]
+- type: entity
+  id: SlowWeakThruster
+  parent: ThrusterAnemone
+  suffix: [Legacy]
+- type: entity
+  id: Thruster
+  parent: ThrusterStock
+  suffix: [Legacy]
+- type: entity
+  id: FastWeakThruster
+  parent: ThrusterBegonia
+  suffix: [Legacy]
+- type: entity
+  id: FastStrongThruster
+  parent: ThrusterSnapdragon
+  suffix: [Legacy]
+- type: entity
+  id: FasterWeakThruster
+  parent: ThrusterCrocus
+  suffix: [Legacy]
+- type: entity
+  id: FasterStrongThruster
+  parent: ThrusterPhlox
+  suffix: [Legacy]
+
+#thrusters_nfsd.yml
+- type: entity
+  id: ThrusterSecurity
+  parent: ThrusterRose
+  suffix: [NFSD, Legacy]
+- type: entity
+  id: ThrusterNfsd
+  parent: ThrusterRoseNFSD
+  suffix: [NFSD, Legacy]
