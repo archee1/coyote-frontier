@@ -148,9 +148,11 @@
       prototype: NfsdTechFab
 
 # Thrusters
-#
-#
-#
+#Moved to _CS/Entities/Structures/Shuttles/
+
+#Moved to _CS/Entities/Structures/Shuttles/
+
+#Moved to _CS/Entities/Structures/Shuttles/
 
 # Gyroscope
 - type: entity
