@@ -19,16 +19,23 @@
       shader: unshaded
       visible: false
       offset: 0, 1
+  - type: Machine
+    board: ThrusterSecurityMachineCircuitboard
   - type: Destructible
     thresholds: &secDestructibleThresholds
     - trigger:
         !type:DamageTrigger
-        damage: 600  # Considering we need a lot of thrusters didn't want to make an individual one too tanky
+        damage: 450
       behaviors:
         - !type:DoActsBehavior
           acts: ["Destruction"]
-  - type: Machine
-    board: ThrusterSecurityMachineCircuitboard
+  - type: Thruster
+    baseThrust: 100
+    thrust: 150
+    thrustPerPartLevel: [ 195, 240, 285, 315 ]
+    damage:
+      types:
+        Heat: 39
 
 #NFSD
 - type: entity
@@ -36,13 +43,6 @@
   parent: [BaseStructureDisableAnchoring, BaseStructureDisableToolUse, ThrusterSecurity]
   suffix: NFSD
   components:
-  - type: Thruster #upgraded NFSD thrusters
-    baseThrust: 100
-    thrust: 190
-    thrustPerPartLevel: [ 247, 304, 361, 418 ]
-    damage:
-      types:
-        Heat: 40
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi
     layers: &nfsdThrusterLayers
@@ -70,8 +70,6 @@
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi
     layers: *secThrusterLayers
-  - type: Destructible
-    thresholds: *secDestructibleThresholds
   - type: Machine
     board: ThrusterSecurityMachineCircuitboard
   - type: ContainerContainer

@@ -102,7 +102,7 @@
     thrustPerPartLevel: [42.9, 56.1, 69.3, 82.5]
     damage:
       types:
-        Heat: 40
+        Heat: 26
   - type: ApcPowerReceiver
     powerLoad: 500
 - type: entity
@@ -136,7 +136,7 @@
     thrustPerPartLevel: [162, 202, 242, 282]
     damage:
       types:
-        Heat: 40
+        Heat: 16
   - type: ApcPowerReceiver
     powerLoad: 250
 - type: entity
@@ -170,7 +170,7 @@
     thrustPerPartLevel: [28.6, 37, 45.4, 53.8] # its bad
     damage:
       types:
-        Heat: 40
+        Heat: 17
   - type: ApcPowerReceiver
     powerLoad: 1
 
@@ -203,7 +203,7 @@
     thrustPerPartLevel: [130, 170, 210, 250]
     damage:
       types:
-        Heat: 26 # Formula is floor(20*(thrust/baseThrust))
+        Heat: 26
   - type: ApcPowerReceiver
     powerLoad: 1500
 - type: entity
@@ -235,7 +235,7 @@
     thrustPerPartLevel: [78, 96, 114, 132]
     damage:
       types:
-        Heat: 40
+        Heat: 47
   - type: ApcPowerReceiver
     powerLoad: 4000
 
@@ -269,7 +269,7 @@
     thrustPerPartLevel: [247, 304, 361, 418]
     damage:
       types:
-        Heat: 40
+        Heat: 49
   - type: ApcPowerReceiver
     powerLoad: 7500
 - type: entity
@@ -301,7 +301,7 @@
     thrustPerPartLevel: [97.5, 120, 142.5, 165]
     damage:
       types:
-        Heat: 40
+        Heat: 59
   - type: ApcPowerReceiver
     powerLoad: 8500
 
@@ -335,7 +335,7 @@
     thrustPerPartLevel: [975, 1200, 1425, 1650]
     damage:
       types:
-        Heat: 40
+        Heat: 59
   - type: ApcPowerReceiver
     powerLoad: 50000 # This is a lot of power, but it is a super thruster after all
 
