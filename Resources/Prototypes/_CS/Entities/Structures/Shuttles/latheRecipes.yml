@@ -1,52 +1,89 @@
-#region Lower Power
+#region T1 'Basic'
 - type: latheRecipe
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
-  id: SlowWeakThrusterMachineCircuitboard
-  result: SlowWeakThrusterMachineCircuitboard
-#mini located elsewhere
+  id: ThrusterT1NormalMachineCircuitboard
+  result: ThrusterT1NormalMachineCircuitboard
 - type: latheRecipe
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
-  id: SlowStrongThrusterMachineCircuitboard
-  result: SlowStrongThrusterMachineCircuitboard
+  id: ThrusterT1SmallMachineCircuitboard
+  result: ThrusterT1SmallMachineCircuitboard
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: ThrusterT1StrongMachineCircuitboard
+  result: ThrusterT1StrongMachineCircuitboard
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: ThrusterT1EfficientMachineCircuitboard
+  result: ThrusterT1EfficientMachineCircuitboard
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: ThrusterT1NfsdMachineCircuitboard
+  result: ThrusterT1NfsdMachineCircuitboard
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: ThrusterT1SecurityMachineCircuitboard
+  result: ThrusterT1SecurityMachineCircuitboard
 
-#region Medium Power
-#mule located elsewhere
+#region T2 'Intermediate'
 - type: latheRecipe
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
-  id: FastWeakThrusterMachineCircuitboard
-  result: FastWeakThrusterMachineCircuitboard
-  materials:
-    Steel: 800
-    Glass: 900
-    Gold: 100
+  id: ThrusterT2StrongMachineCircuitboard
+  result: ThrusterT2StrongMachineCircuitboard
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: ThrusterT2EfficientMachineCircuitboard
+  result: ThrusterT2EfficientMachineCircuitboard
 
-#region High Power
+#region T3 'Advanced'
 - type: latheRecipe
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
-  id: FastStrongThrusterMachineCircuitboard
-  result: FastStrongThrusterMachineCircuitboard
+  id: ThrusterT3StrongMachineCircuitboard
+  result: ThrusterT3StrongMachineCircuitboard
+  materials:
+    Steel: 400
+    Glass: 750
+    Gold: 300
+    Silver: 100
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: ThrusterT3EfficientMachineCircuitboard
+  result: ThrusterT3EfficientMachineCircuitboard
+  materials:
+    Steel: 200
+    Glass: 750
+    Gold: 150
+    Silver: 50
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: ThrusterT3NfsdMachineCircuitboard
+  result: ThrusterT3NfsdMachineCircuitboard
   materials:
     Steel: 800
     Glass: 900
-    Gold: 100
-- type: latheRecipe
-  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
-  id: FasterWeakThrusterMachineCircuitboard
-  result: FasterWeakThrusterMachineCircuitboard
-  materials:
-    Steel: 800
-    Glass: 900
-    Gold: 200
-    Plasma: 100
-
-#region Crazy Power
-- type: latheRecipe
-  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
-  id: FasterStrongThrusterMachineCircuitboard
-  result: FasterStrongThrusterMachineCircuitboard
-  materials:
-    Steel: 800
-    Glass: 900
-    Gold: 200
-    Plasma: 100
+    Gold: 300
+    Plasma: 300
     Diamond: 100
+
+#region T4 'Experimental'
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: ThrusterT4StrongMachineCircuitboard
+  result: ThrusterT4StrongMachineCircuitboard
+  completetime: 8
+  materials:
+    Steel: 800
+    Glass: 900
+    Gold: 300
+    Plasma: 300
+    Diamond: 200
+- type: latheRecipe
+  parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory, BaseGeneralMachineRecipeCategory]
+  id: ThrusterT4EfficientMachineCircuitboard
+  result: ThrusterT4EfficientMachineCircuitboard
+  completetime: 8
+  materials:
+    Steel: 400
+    Glass: 900
+    Gold: 100
+    Plasma: 100
+    Diamond: 50

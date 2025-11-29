@@ -71,7 +71,7 @@
     - type: PirateBountyItem
       id: Thruster
 
-#region T1 'basic' tech
+#region T1 'basic'
 - type: entity
   id: ThrusterT1Normal
   name: stock-P15 thruster
@@ -211,6 +211,7 @@
 - type: entity
   id: ThrusterT1Nfsd
   parent: BaseThruster
+  name: rose-S20 nfsd thruster
   suffix: NFSD
   components:
   - type: Sprite
@@ -256,7 +257,7 @@
 - type: entity
   id: ThrusterT1Security
   parent: ThrusterRoseSecurity
-  name: SpaceMutt Rose-S20
+  name: rose-S20 security thruster
   suffix: Security
   components:
   - type: Sprite
@@ -276,7 +277,7 @@
   - type: Machine
     board: ThrusterSecurityMachineCircuitboard
 
-#region T2 'intermediate' tech
+#region T2 'intermediate'
 - type: entity
   id: ThrusterT2Efficient
   parent: BaseThruster
@@ -345,7 +346,7 @@
   - type: ApcPowerReceiver
     powerLoad: 4500
 
-#region T3 'advanced' tech
+#region T3 'advanced'
 - type: entity
   id: ThrusterT3Strong
   parent: BaseThruster
@@ -415,7 +416,7 @@
 - type: entity
   id: ThrusterT3Nfsd
   parent: ThrusterSecurity
-  name: hellebore-X65 thruster
+  name: hellebore-X65 nfsd thruster
   suffix: NFSD
   components:
   - type: Sprite
@@ -433,7 +434,7 @@
   - type: ApcPowerReceiver
     powerLoad: 6500
 
-#region T4 'experimental' tech
+#region T4 'experimental'
 - type: entity
   id: ThrsuterT4Strong
   parent: BaseThruster

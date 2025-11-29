@@ -1,8 +1,5 @@
-#region SpacePutt
-
-
 #region T1 'Basic'
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT1NormalMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: stock thruster machine board
@@ -16,7 +13,7 @@
       Capacitor: 4
     stackRequirements:
       Steel: 5
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT1SmallMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: bud thruster machine board
@@ -35,7 +32,7 @@
   - type: Tag
     tags:
     - SmallThrusterMachineCircuitboard
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT1StrongMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: tulip thruster machine board
@@ -47,7 +44,7 @@
     prototype: ThrusterT1Strong
     requirements:
       Capacitor: 4
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT1EfficientMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: anemone thruster machine board
@@ -59,7 +56,7 @@
     prototype: ThrusterT1Efficient
     requirements:
       Capacitor: 2
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT1NfsdMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: NFSD rose thruster machine board
@@ -74,7 +71,7 @@
       Capacitor: 3
     stackRequirements:
       Steel: 5
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT1SecurityMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: security rose thruster machine board
@@ -89,7 +86,7 @@
     stackRequirements:
       Steel: 5
 #region T2 'Intermediate'
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT2StrongMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: begonia thruster machine board
@@ -103,7 +100,7 @@
       Capacitor: 5
     stackRequirements:
       Steel: 5
-- type: entity #needs lathe recipe
+- type: entity
   id: ThrusterT2EfficientMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: lotus thruster machine board
@@ -116,7 +113,7 @@
     requirements:
       Capacitor: 3
 #region T3 'Advanced'
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT3StrongMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: snapdragon thruster machine board
@@ -130,7 +127,7 @@
       Capacitor: 5
     stackRequirements:
       Steel: 10
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT3EfficientMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: crocus thruster machine board
@@ -145,7 +142,7 @@
     stackRequirements:
       Steel: 10
       Plasma: 5
-- type: entity #needs lathe recipe
+- type: entity
   id: ThrusterT3NfsdMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: NFSD hellebore thruster machine board
@@ -162,7 +159,7 @@
       Plasteel: 20
       Urnaium: 10
 #region T4 'Experimental'
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT4StrongMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: phlox thruster machine board
@@ -177,7 +174,7 @@
     stackRequirements:
       Steel: 20
       Plasma: 10
-- type: entity #needs recipe updates?
+- type: entity
   id: ThrusterT4EfficientMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: phlox thruster machine board
