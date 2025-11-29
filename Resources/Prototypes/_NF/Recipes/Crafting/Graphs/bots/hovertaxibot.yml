@@ -23,7 +23,7 @@
           state: l_hand
         name: construction-graph-tag-borg-arm
         doAfter: 2
-      - tag: SmallThrusterMachineCircuitboard
+      - tag: CSThrusterCircuitBoard # Coyote: ThrusterOverhaul
         icon:
           sprite: Objects/Misc/module.rsi
           state: generic

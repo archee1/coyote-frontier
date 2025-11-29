@@ -134,6 +134,7 @@
 # region Thrusters
 - type: latheRecipe
   id: ThrusterSecurityMachineCircuitboard
+  abstract: true # Coyote: ThrusterOverhaul
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory]
   result: ThrusterSecurityMachineCircuitboard
   materials:
@@ -142,6 +143,7 @@
 
 - type: latheRecipe
   id: ThrusterNfsdMachineCircuitboard
+  abstract: true # Coyote: ThrusterOverhaul
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory]
   result: ThrusterNfsdMachineCircuitboard
   materials:
@@ -150,6 +152,7 @@
 
 - type: latheRecipe
   id: SmallThrusterMachineCircuitboard
+  abstract: true # Coyote: ThrusterOverhaul
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory]
   result: SmallThrusterMachineCircuitboard
   applyMaterialDiscount: false
@@ -160,26 +163,31 @@
 # region Gyroscopes
 - type: latheRecipe
   id: GyroscopeSecurityMachineCircuitboard
+  abstract: true # Coyote: ThrusterOverhaul
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory]
   result: GyroscopeSecurityMachineCircuitboard
 
 - type: latheRecipe
   id: SmallGyroscopeSecurityMachineCircuitboard
+  abstract: true # Coyote: ThrusterOverhaul
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory]
   result: SmallGyroscopeSecurityMachineCircuitboard
 
 - type: latheRecipe
   id: GyroscopeNfsdMachineCircuitboard
+  abstract: true # Coyote: ThrusterOverhaul
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory]
   result: GyroscopeNfsdMachineCircuitboard
 
 - type: latheRecipe
   id: SmallGyroscopeNfsdMachineCircuitboard
+  abstract: true # Coyote: ThrusterOverhaul
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory]
   result: SmallGyroscopeNfsdMachineCircuitboard
 
 - type: latheRecipe
   id: SmallGyroscopeMachineCircuitboard
+  abstract: true # Coyote: ThrusterOverhaul
   parent: [BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory]
   result: SmallGyroscopeMachineCircuitboard
 

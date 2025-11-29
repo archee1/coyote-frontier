@@ -125,6 +125,7 @@
 
 - type: latheRecipePack
   id: ShuttleBoards
+  abstract: true # Coyote: ThrusterOverhaul
   recipes:
   - ShuttleConsoleCircuitboard
   - RadarConsoleCircuitboard

@@ -312,11 +312,13 @@
 # Shuttle
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+  abstract: true # Coyote: ThrusterOverhaul
   id: ThrusterMachineCircuitboard
   result: ThrusterMachineCircuitboard
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseSupplyMachineRecipeCategory ]
+  abstract: true # Coyote: ThrusterOverhaul
   id: GyroscopeMachineCircuitboard
   result: GyroscopeMachineCircuitboard
 

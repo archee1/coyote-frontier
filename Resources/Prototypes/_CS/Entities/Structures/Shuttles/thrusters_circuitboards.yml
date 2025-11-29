@@ -1,7 +1,14 @@
+#region Base
+- type: entity
+  id: BaseThrusterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  abstract: true
+  tag: [ CSThrusterCircuitboard]
+
 #region T1 'Basic'
 - type: entity
   id: ThrusterT1NormalMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: stock thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -15,7 +22,7 @@
       Steel: 5
 - type: entity
   id: ThrusterT1SmallMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: bud thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -34,7 +41,7 @@
     - SmallThrusterMachineCircuitboard
 - type: entity
   id: ThrusterT1StrongMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: tulip thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -46,7 +53,7 @@
       Capacitor: 4
 - type: entity
   id: ThrusterT1EfficientMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: anemone thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -58,7 +65,7 @@
       Capacitor: 2
 - type: entity
   id: ThrusterT1NfsdMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: NFSD rose thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -73,7 +80,7 @@
       Steel: 5
 - type: entity
   id: ThrusterT1SecurityMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: security rose thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -88,7 +95,7 @@
 #region T2 'Intermediate'
 - type: entity
   id: ThrusterT2StrongMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: begonia thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -102,7 +109,7 @@
       Steel: 5
 - type: entity
   id: ThrusterT2EfficientMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: lotus thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -115,7 +122,7 @@
 #region T3 'Advanced'
 - type: entity
   id: ThrusterT3StrongMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: snapdragon thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -129,7 +136,7 @@
       Steel: 10
 - type: entity
   id: ThrusterT3EfficientMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: crocus thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -144,7 +151,7 @@
       Plasma: 5
 - type: entity
   id: ThrusterT3NfsdMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: NFSD hellebore thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -161,7 +168,7 @@
 #region T4 'Experimental'
 - type: entity
   id: ThrusterT4StrongMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: phlox thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -176,7 +183,7 @@
       Plasma: 10
 - type: entity
   id: ThrusterT4EfficientMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: BaseThrusterMachineCircuitboard
   name: phlox thruster machine board
   description: PLACEHOLDER TEXT.
   components:
@@ -187,6 +194,9 @@
     requirements:
       Capacitor: 3
     stackRequirements:
-      Steel: 10
+      Steel: 30
       Uranium: 10
-      Uranium: 10
+
+#region tags
+- type: Tag
+  id: CSThrusterCircuitBoard

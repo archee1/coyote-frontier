@@ -1,9 +1,9 @@
 ###for formatting;
-### "##PR###" then a block of all migrations.
+### "##PR[number] [TITLE]" then a block of all migrations. TITLE should also be what you denote any chances to NF or base files that are moved or edited.
 ### "#subgroup"
 
 
-##TBD - Thruster Overhaul
+##TBD - ThrusterOverhaul
 SmallThruster: ThrusterT1Small # Thrusters
 SlowStrongThruster: ThrusterT1Strong
 SlowWeakThruster: ThrusterT1Efficient
@@ -20,6 +20,6 @@ SlowWeakThrusterMachineCircuitboard: ThrusterT1EfficientMachineCircuitboard
 ThrusterMachineCircuitboard: ThrusterT1NormalMachineCircuitboard
 FastStrongThrusterMachineCircuitboard: ThrusterT2StrongMachineCircuitboard
 FasterWeakThrusterThrusterMachineCircuitboard: ThrusterT3EfficientMachineCircuitboard
-FasterStrongThrusterMachineCircuitboard: ThrusterT4ExperimentalMachineCircuitboard
+FasterStrongThrusterMachineCircuitboard: ThrusterT4StrongMachineCircuitboard
 ThrusterSecurityMachineCircuitboard: ThrusterT1SecurityMachineCircuitboard
 ThrusterNfsdMachineCircuitboard: ThrusterT1NfsdMachineCircuitboard

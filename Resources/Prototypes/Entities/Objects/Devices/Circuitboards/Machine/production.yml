@@ -936,23 +936,8 @@
     - type: StaticPrice
       price: 40
 
-#
-
-- type: entity
-  id: GyroscopeMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: gyroscope machine board
-  components:
-  - type: Sprite
-    state: supply
-  - type: MachineBoard
-    prototype: Gyroscope
-    requirements: # Frontier
-      Manipulator: 2 # Frontier
-      Capacitor: 1 # Frontier
-    stackRequirements:
-      # Manipulator: 3 # Frontier
-      Glass: 2
+## Coyote: ThrusterOverhaul
+#moved thruster and gyros to _CS/Entities/Strcutures/Shuttles
 
 - type: entity
   id: PortableGeneratorSuperPacmanMachineCircuitboard

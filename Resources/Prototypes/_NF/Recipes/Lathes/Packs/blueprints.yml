@@ -100,12 +100,12 @@
   - MechEquipmentFork
   # Shuttlecraft
   - ShuttleConsoleCircuitboard
-  - #ThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
-  - #GyroscopeMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- ThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- GyroscopeMachineCircuitboard # Coyote: ThrusterOverhaul
   - MiniGravityGeneratorCircuitboard
   - MiniStationAnchorCircuitboard
-  - #SmallThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
-  - #SmallGyroscopeMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- SmallThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- SmallGyroscopeMachineCircuitboard # Coyote: ThrusterOverhaul
   # AdvancedAtmospherics
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard

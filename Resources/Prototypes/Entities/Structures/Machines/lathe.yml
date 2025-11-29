@@ -301,7 +301,7 @@
     - ScienceBoards
     - CameraBoards
     - MechBoards
-    - ShuttleBoards
+    #- ShuttleBoards # Coyote: ThrusterOverhaul
     - NFEngineeringBoards # Frontier
     - NFMedicalBoards # Frontier
     - NFServiceBoards # Frontier

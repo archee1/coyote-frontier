@@ -16,10 +16,10 @@
   - NFTargetHuman
   - NFTargetSyndicate
   - NFZipties
-  - ThrusterNfsdMachineCircuitboard
-  - SmallThrusterMachineCircuitboard
-  - GyroscopeNfsdMachineCircuitboard
-  - SmallGyroscopeNfsdMachineCircuitboard
+  #- ThrusterNfsdMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- SmallThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- GyroscopeNfsdMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- SmallGyroscopeNfsdMachineCircuitboard # Coyote: ThrusterOverhaul
   - ClothingOuterEVASuitPrisoner
   - NFWeaponEnergyPistolDisabler
   - ContrabandAppraisalTool

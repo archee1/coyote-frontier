@@ -281,9 +281,9 @@
     - MaterialReclaimerMachineCircuitboard
     - SpaceHeaterMachineCircuitBoard
     - TurboItemRechargerCircuitboard
-    - GyroscopeMachineCircuitboard
+    #- GyroscopeMachineCircuitboard # Coyote: ThrusterOverhaul
     - MiniGravityGeneratorCircuitboard
-    - ThrusterMachineCircuitboard
+    #- ThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
     - ShuttleGunKineticCircuitboard
     chance: 0.95
     offset: 0.0

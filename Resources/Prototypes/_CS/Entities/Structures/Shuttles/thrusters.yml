@@ -2,7 +2,7 @@
 - type: entity
   id: BaseThruster
   parent: [ BaseStructureDynamic, ConstructibleMachine ]
-  name: SpaceMutt Genera-M15 #Naming Format: Techgroup Name-[thrust][cW (centiwatts)]
+  name: SpaceMutt Genera-M15 #Naming Format: Techgroup Name-[MaxSpeedGroup (P <30 / M 30-40 / J 40-50 / X >50)][cW (centiwatts)]
   description: A thruster that allows a shuttle to move.
   abstract: true
   placement:
@@ -93,7 +93,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: ThrusterMachineCircuitboard
+    board: ThrusterT1NormalMachineCircuitboard
   - type: Thruster
     baseThrust: 100
     thrust: 130
@@ -125,7 +125,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: SmallThrusterMachineCircuitboard
+    board: ThrusterT1SmallMachineCircuitboard
   - type: StaticPrice
     price: 100
   - type: Thruster
@@ -160,7 +160,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: SlowStrongThrusterMachineCircuitboard
+    board: ThrusterT1StrongMachineCircuitboard
   - type: StaticPrice
     price: 100
   - type: Thruster
@@ -195,7 +195,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: SlowWeakThrusterMachineCircuitboard
+    board: ThrusterT1EfficientMachineCircuitboard
   - type: StaticPrice
     price: 100
   - type: Thruster
@@ -216,7 +216,7 @@
   components:
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi
-    layers: &nfsdThrusterLayers
+    layers:
     - state: base_nfsd
       map: ["enum.ThrusterVisualLayers.Base"]
     - state: thrust
@@ -229,7 +229,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: ThrusterNfsdMachineCircuitboard
+    board: ThrusterT1NfsdMachineCircuitboard
   - type: Destructible
     thresholds:
     - trigger:
@@ -256,7 +256,7 @@
 
 - type: entity
   id: ThrusterT1Security
-  parent: ThrusterRoseSecurity
+  parent: ThrusterT1Nfsd
   name: rose-S20 security thruster
   suffix: Security
   components:
@@ -275,7 +275,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: ThrusterSecurityMachineCircuitboard
+    board: ThrusterT1SecurityMachineCircuitboard
 
 #region T2 'intermediate'
 - type: entity
@@ -300,7 +300,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: ThrusterLotusMachineCircuitboard
+    board: ThrusterT2EfficientMachineCircuitboard
   - type: StaticPrice
     price: 100
   - type: Thruster
@@ -335,7 +335,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: FastWeakThrusterMachineCircuitboard
+    board: ThrusterT2StrongMachineCircuitboard
   - type: Thruster
     baseThrust: 120
     thrust: 200
@@ -369,7 +369,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: FastStrongThrusterMachineCircuitboard
+    board: ThrusterT3StrongMachineCircuitboard
   - type: Thruster
     baseThrust: 110
     thrust: 235
@@ -402,7 +402,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: FasterWeakThrusterMachineCircuitboard
+    board: ThrusterT3EfficientMachineCircuitboard
   - type: Thruster
     baseThrust: 70
     thrust: 175
@@ -415,15 +415,26 @@
 
 - type: entity
   id: ThrusterT3Nfsd
-  parent: ThrusterSecurity
+  parent: ThrusterT1Nfsd
   name: hellebore-X65 nfsd thruster
   suffix: NFSD
   components:
   - type: Sprite
     sprite: _NF/Structures/Shuttles/thruster.rsi
-    layers: *nfsdThrusterLayers
+    layers:
+    - state: base_nfsd
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
   - type: Machine
-    board: ThrusterHelleboreNfsdMachineCircuitboard
+    board: ThrusterT3NfsdMachineCircuitboard
   - type: Thruster
     baseThrust: 135
     thrust: 337.5
@@ -436,7 +447,7 @@
 
 #region T4 'experimental'
 - type: entity
-  id: ThrsuterT4Strong
+  id: ThrusterT4Strong
   parent: BaseThruster
   name: phlox-X550 thruster
   description: A turbocharged superthruster that will zoom you around the galaxy at breakneck speeds... if you have the power to feed it.
@@ -457,7 +468,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: FasterStrongThrusterMachineCircuitboard
+    board: ThrusterT4StrongMachineCircuitboard
   - type: Thruster
     baseThrust: 350
     thrust: 875
@@ -490,7 +501,7 @@
       visible: false
       offset: 0, 1
   - type: Machine
-    board: FasterStrongThrusterMachineCircuitboard
+    board: ThrusterT4EfficientMachineCircuitboard
   - type: Thruster
     baseThrust: 100
     thrust: 130
@@ -504,7 +515,7 @@
 #region other
 - type: entity
   id: ThrusterUnanchored
-  parent: Thruster
+  parent: ThrusterT1Normal
   suffix: Unanchored
   components:
     - type: Transform
