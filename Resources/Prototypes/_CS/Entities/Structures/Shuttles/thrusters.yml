@@ -435,38 +435,6 @@
 
 #region T4 'experimental' tech
 - type: entity
-  id: ThrusterT4Efficient
-  parent: BaseThruster
-  name: dahlia-P15 thruster
-  description: A turbocharged superthruster that will zoom you around the galaxy at breakneck speeds... if you have the power to feed it.
-    Has a very high max speed and acceleration, but uses a lot of power.
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Shuttles/thruster.rsi
-    layers:
-    - state: base
-      map: ["enum.ThrusterVisualLayers.Base"]
-    - state: thrust
-      map: ["enum.ThrusterVisualLayers.ThrustOn"]
-      shader: unshaded
-      visible: false
-    - state: thrust_burn_unshaded
-      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-      shader: unshaded
-      visible: false
-      offset: 0, 1
-  - type: Machine
-    board: FasterStrongThrusterMachineCircuitboard
-  - type: Thruster
-    baseThrust: 100
-    thrust: 130
-    thrustPerPartLevel: [130, 169, 208, 260]
-    damage:
-      types:
-        Heat: 13
-  - type: ApcPowerReceiver
-    powerLoad: 100
-- type: entity
   id: ThrsuterT4Strong
   parent: BaseThruster
   name: phlox-X550 thruster
@@ -498,6 +466,39 @@
         Heat: 87.5
   - type: ApcPowerReceiver
     powerLoad: 55000
+
+- type: entity
+  id: ThrusterT4Efficient
+  parent: BaseThruster
+  name: dahlia-P15 thruster
+  description: A turbocharged superthruster that will zoom you around the galaxy at breakneck speeds... if you have the power to feed it.
+    Has a very high max speed and acceleration, but uses a lot of power.
+  components:
+  - type: Sprite
+    sprite: _NF/Structures/Shuttles/thruster.rsi
+    layers:
+    - state: base
+      map: ["enum.ThrusterVisualLayers.Base"]
+    - state: thrust
+      map: ["enum.ThrusterVisualLayers.ThrustOn"]
+      shader: unshaded
+      visible: false
+    - state: thrust_burn_unshaded
+      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+      shader: unshaded
+      visible: false
+      offset: 0, 1
+  - type: Machine
+    board: FasterStrongThrusterMachineCircuitboard
+  - type: Thruster
+    baseThrust: 100
+    thrust: 130
+    thrustPerPartLevel: [130, 169, 208, 260]
+    damage:
+      types:
+        Heat: 13
+  - type: ApcPowerReceiver
+    powerLoad: 100
 
 #region other
 - type: entity
