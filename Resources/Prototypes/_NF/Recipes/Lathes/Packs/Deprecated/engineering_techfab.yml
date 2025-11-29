@@ -73,8 +73,8 @@
     - SMESMachineCircuitboard
     - PortableSMESMachineCircuitboard
     - SubstationMachineCircuitboard
-    - SmallThrusterMachineCircuitboard
-    - SmallGyroscopeMachineCircuitboard
+    #- SmallThrusterMachineCircuitboard # Coyote
+    #- SmallGyroscopeMachineCircuitboard # Coyote
     - WallmountSubstationElectronics
     - SolarControlComputerCircuitboard
     - SolarTrackerElectronics
@@ -83,8 +83,8 @@
     - PortableGeneratorPacmanMachineCircuitboard
     - PortableGeneratorSuperPacmanMachineCircuitboard
     - PortableGeneratorJrPacmanMachineCircuitboard
-    - ThrusterMachineCircuitboard
-    - GyroscopeMachineCircuitboard
+    #- ThrusterMachineCircuitboard # Coyote
+    #- GyroscopeMachineCircuitboard # Coyote
     - MiniGravityGeneratorCircuitboard
     - MiniStationAnchorCircuitboard
     - GasRecyclerMachineCircuitboard

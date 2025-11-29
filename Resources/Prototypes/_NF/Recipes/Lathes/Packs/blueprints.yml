@@ -71,12 +71,12 @@
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
   - MaterialSiloMachineCircuitboard
-  - SlowWeakThrusterMachineCircuitboard
-  - SlowStrongThrusterMachineCircuitboard
-  - FastWeakThrusterMachineCircuitboard
-  - FastStrongThrusterMachineCircuitboard
-  - FasterWeakThrusterMachineCircuitboard
-  - FasterStrongThrusterMachineCircuitboard
+  #- SlowWeakThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- SlowStrongThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- FastWeakThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- FastStrongThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- FasterWeakThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  #- FasterStrongThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
   - ImpCoffeeMachineCircuitboard #imp
   # PowerGeneration
   - PortableGeneratorPacmanMachineCircuitboard
@@ -100,12 +100,12 @@
   - MechEquipmentFork
   # Shuttlecraft
   - ShuttleConsoleCircuitboard
-  - ThrusterMachineCircuitboard
-  - GyroscopeMachineCircuitboard
+  - #ThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  - #GyroscopeMachineCircuitboard # Coyote: ThrusterOverhaul
   - MiniGravityGeneratorCircuitboard
   - MiniStationAnchorCircuitboard
-  - SmallThrusterMachineCircuitboard
-  - SmallGyroscopeMachineCircuitboard
+  - #SmallThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
+  - #SmallGyroscopeMachineCircuitboard # Coyote: ThrusterOverhaul
   # AdvancedAtmospherics
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard

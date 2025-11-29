@@ -216,7 +216,7 @@
       - id: OreProcessorMachineCircuitboard
       - id: FlatpackerMachineCircuitboard
       - id: MiniGravityGeneratorCircuitboard
-      - id: ThrusterMachineCircuitboard
+      #- id: ThrusterMachineCircuitboard # Coyote
       - id: GyroscopeMachineCircuitboard
       - id: JukeboxCircuitBoard
       - id: MaterialSiloMachineCircuitboard

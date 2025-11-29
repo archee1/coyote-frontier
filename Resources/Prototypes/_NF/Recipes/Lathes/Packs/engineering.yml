@@ -3,23 +3,23 @@
   recipes:
   - PortableSMESMachineCircuitboard
 
-- type: latheRecipePack
+- type: latheRecipePack # Coyote: ThrusterOverhaul
   id: NFEngineeringBoards
   recipes:
-  - SmallThrusterMachineCircuitboard
-  - SmallGyroscopeMachineCircuitboard
+  #- SmallThrusterMachineCircuitboard
+  #- SmallGyroscopeMachineCircuitboard
   - MiniStationAnchorCircuitboard
   - PortableGeneratorDKJrMachineCircuitboard
   - GasMiningDrillMachineCircuitboard
   - GaslockFrameMachineCircuitboard
-#  - GaslockBigFrameMachineCircuitboard
+  #- GaslockBigFrameMachineCircuitboard
   - MaterialSiloMachineCircuitboard
-  - SlowWeakThrusterMachineCircuitboard
-  - SlowStrongThrusterMachineCircuitboard
-  - FastWeakThrusterMachineCircuitboard
-  - FastStrongThrusterMachineCircuitboard
-  - FasterWeakThrusterMachineCircuitboard
-  - FasterStrongThrusterMachineCircuitboard
+  #- SlowWeakThrusterMachineCircuitboard
+  #- SlowStrongThrusterMachineCircuitboard
+  #- FastWeakThrusterMachineCircuitboard
+  #- FastStrongThrusterMachineCircuitboard
+  #- FasterWeakThrusterMachineCircuitboard
+  #- FasterStrongThrusterMachineCircuitboard
 
 - type: latheRecipePack
   id: NFEngineering

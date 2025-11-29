@@ -1338,6 +1338,7 @@
 
 - type: technology
   id: NFShuttlecraft
+  abstract: true # Coyote: ThrusterOverhaul
   name: nf-research-technology-shuttlecraft
   entityIcon: ComputerShuttle
   discipline: NFEngineering
@@ -1353,6 +1354,7 @@
 
 - type: technology
   id: NFShuttlecraftThrust
+  abstract: true # Coyote: ThrusterOverhaul
   name: nf-research-technology-shuttlecraft-thrust
   entityIcon: Thruster
   discipline: NFEngineering
@@ -1372,6 +1374,7 @@
 
 - type: technology
   id: NFShuttlecraftThrustSmall
+  abstract: true # Coyote: ThrusterOverhaul
   name: nf-research-technology-shuttlecraft-thrust-small
   entityIcon: SmallThruster
   discipline: NFEngineering

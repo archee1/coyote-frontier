@@ -298,8 +298,8 @@
     - CrateTools
     - CrateEngineerHardsuit
     - CrateAtmosTechHardsuit
-    - CrateEngineeringThruster
-    - CrateEngineeringGyroscope
+    #- CrateEngineeringThruster # Coyote: ThrusterOverhaul
+    #- CrateEngineeringGyroscope # Coyote: ThrusterOverhaul
     chance: 0.9
     offset: 0.0
     rarePrototypes:
@@ -543,9 +543,9 @@
     - EmitterCircuitboard
     - CondenserMachineCircuitBoard
     - TurboItemRechargerCircuitboard
-    - GyroscopeMachineCircuitboard
+    #- GyroscopeMachineCircuitboard # Coyote: ThrusterOverhaul
     - MiniGravityGeneratorCircuitboard
-    - ThrusterMachineCircuitboard
+    #- ThrusterMachineCircuitboard # Coyote: ThrusterOverhaul
     - StationMapCircuitboard
     chance: 0.95
     offset: 0.0
